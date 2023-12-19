@@ -16,13 +16,13 @@ Before using the operator, make sure you have the following prerequisites:
 
 ## Usage
 1. Import the PowerBIDatasetRefreshOperator in your Airflow DAG file:
-   ```
+```
    from airflow.models import DAG
    from airflow.operators.powerbi_refresh_operator import PowerBIDatasetRefreshOperator
-   ```
+```
 
 2. Create a task for the Custom Operator within your DAG:
-   ```
+```
 refresh_powerbi_dataset = PowerBIDatasetRefreshOperator(
    task_id='refresh_powerbi_dataset',
    client_id='your_client_id',
