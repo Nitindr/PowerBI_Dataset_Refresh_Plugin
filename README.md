@@ -15,13 +15,31 @@ Before using the operator, make sure you have the following prerequisites:
 - Python environment with necessary dependencies installed.
 
 ## Usage
-1. Import the PowerBIDatasetRefreshOperator in your Airflow DAG file:
+1. Place this plugin in your plugins folder of your Apache Airflow
+   ex: /usr/local/airflow/plugins/powerbi_plugin
+If you are using AWS MWAA we need the package the operator in a zip file and need to place the plugins.zip file in the plugins folder
+   ex: /usr/local/airflow/plugins/plugins.zip
+
+```
+├── dags
+│   └── powerbi_dataset_refresh_dag.py  
+├── plugins
+│   └── __init__.py
+|   └── powerbi_plugin
+|       └──__init__.py
+|       └──operators
+           └──__init__.py
+           └──powerbi_dataset_refresh_operator.py
+```
+           
+
+2. Import the PowerBIDatasetRefreshOperator in your Airflow DAG file:
 ```
    from airflow.models import DAG
    from airflow.operators.powerbi_refresh_operator import PowerBIDatasetRefreshOperator
 ```
 
-2. Create a task for the Custom Operator within your DAG:
+3. Create a task for the Custom Operator within your DAG:
 ```
 refresh_powerbi_dataset = PowerBIDatasetRefreshOperator(
    task_id='refresh_powerbi_dataset',
