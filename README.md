@@ -4,22 +4,26 @@ This repository contains a custom Apache Airflow operator (`PowerBIDatasetRefres
 
 ## Overview
 
-The `PowerBIDatasetRefreshOperator` is an Apache Airflow operator that allows you to automate the refresh of a Power BI dataset from within your Airflow DAGs. It leverages the Microsoft Authentication Library (MSAL) to obtain an access token and interacts with the Power BI REST API to check and trigger dataset refreshes.
+The `PowerBIDatasetRefreshOperator` is a custom Apache Airflow operator that allows you to automate the refresh of a Power BI dataset from within your Airflow DAGs. It leverages the Microsoft Authentication Library (MSAL) to obtain an access token and interacts with the Power BI REST API to check and trigger dataset refreshes.
 
 ## Prerequisites
 
 Before using the operator, make sure you have the following prerequisites:
 
 - Power BI workspace and dataset information.
-- Azure AD application with the required permissions for the Power BI service.
+- Azure AD application Registered with the required permissions for the Power BI service.
 - Python environment with necessary dependencies installed.
 
 ## Usage
 1. Place this plugin in your plugins folder of your Apache Airflow
+```
    ex: /usr/local/airflow/plugins/powerbi_plugin
+```
 If you are using AWS MWAA we need the package the operator in a zip file and need to place the plugins.zip file in the plugins folder
+```
    ex: /usr/local/airflow/plugins/plugins.zip
-
+```
+The folder structure looks similar to below represantation
 ```
 ├── dags
 │   └── powerbi_dataset_refresh_dag.py  
